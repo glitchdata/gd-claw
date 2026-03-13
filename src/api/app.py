@@ -1,7 +1,7 @@
 """FastAPI application for MediaWiki AI Agent."""
 
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from fastapi import FastAPI, HTTPException, Query, Depends
 from fastapi.middleware.cors import CORSMiddleware
@@ -65,7 +65,7 @@ class StatusResponse(BaseModel):
     """Status response."""
     status: str
     indexed_pages: int = 0
-    last_sync: datetime = None
+    last_sync: Optional[datetime] = None
     queue_size: int = 0
 
 

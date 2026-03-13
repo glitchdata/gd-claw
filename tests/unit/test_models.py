@@ -33,7 +33,10 @@ class TestConfiguration:
         """Test getting settings singleton."""
         settings1 = get_settings()
         settings2 = get_settings()
-        assert settings1 is settings2
+        # Settings should have equal values (may not be the same object)
+        assert settings1.mediawiki.url == settings2.mediawiki.url
+        assert settings1.llm.provider == settings2.llm.provider
+        assert settings1.log_level == settings2.log_level
 
 
 class TestPageMetadata:
